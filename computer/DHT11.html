@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DHT11 | Group 12</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+       <i class="bx bxl-c-plus-plus icon"></i>
+        <div class="logo_name">Group 12</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li>
+        <li>
+        <a href="dashboard.html">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-user"></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-chat"></i>
+          <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li>
+      <li>
+        <a href="Analysis.html">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <li>
+        <a href="http://192.168.137.41" target="_blank">
+          <i class="bx bx-folder"></i>
+          <span class="links_name">Motors</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+
+
+      <li>
+        <a href="#">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+        <li class="profile">
+          <div class="profile-details">
+            <img src="UJ-logo.jpg" alt="profileImg" />
+            <div class="name_job">
+              <div class="name">Group 12</div>
+              <div class="job">Computer systems</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <h1 align="center">This is the information for temperature and Humidity sensor</h1>
+     <p >Graph 1 shows the graph of temperature values over time.Graph 2 shows the graph of humidity values over time.
+                    </p>
+                    <iframe width="48%" height="250hv" style="border: 1px solid #cccccc;" src="https://api.thingspeak.com/channels/2136191/charts/3?/results=true &dynamic=true&update=2"></iframe>
+
+
+                       <iframe width="51%" height="250hv" style="border: 1px solid #cccccc;" src="https://api.thingspeak.com/channels/2136191/charts/4?/results=true &dynamic=true&update=2"></iframe>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Motor Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Motor Control</h1>
+
+  <div id="status">Motor is currently: OFF</div>
+
+  <div class="button-container">
+    <button class="button" onclick="turnMotorOn()">Turn On</button>
+    <button class="button" onclick="turnMotorOff()">Turn Off</button>
+  </div>
+
+  <script>
+    function turnMotorOn() {
+      sendCommandToServer('on');
+    }
+
+    function turnMotorOff() {
+      sendCommandToServer('off');
+    }
+
+    function sendCommandToServer(command) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://localhost:80/control'); // Replace with the appropriate URL and port for your server
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            updateStatus(command);
+          } else {
+            console.error('Request failed');
+          }
+        }
+      };
+      xhr.send(JSON.stringify({ command: command }));
+    }
+
+    function updateStatus(command) {
+      var statusElement = document.getElementById('status');
+      statusElement.textContent = 'Motor is currently: ' + (command === 'on' ? 'ON' : 'OFF');
+    }
+  </script>
+</body>
+</html>
